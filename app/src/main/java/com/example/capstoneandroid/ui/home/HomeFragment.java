@@ -22,7 +22,6 @@ import androidx.fragment.app.Fragment;
 import androidx.loader.content.CursorLoader;
 
 import com.example.capstoneandroid.R;
-import com.example.capstoneandroid.SendingImageActivity;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -93,6 +92,7 @@ public class HomeFragment extends Fragment {
                         Intent intent = new Intent(getContext(), SendingImageActivity.class);
                         intent.putExtra("uri", uri.toString());
                         intent.putExtra("imgPath", imgPath);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                         startActivity(intent);
 
                     }

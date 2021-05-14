@@ -1,4 +1,4 @@
-package com.example.capstoneandroid;
+package com.example.capstoneandroid.util;
 
 import android.app.ProgressDialog;
 import android.content.Context;
