@@ -22,8 +22,6 @@ import com.example.capstoneandroid.domain.Post;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -91,15 +89,6 @@ public class SeePostActivity extends AppCompatActivity {
                 Log.d("server", error.toString());
             }
         });
-
-
-//        Comment[] comments = new Comment[5];
-//        for(int i = 0; i < 5; i++){
-//            Long dateTime = System.currentTimeMillis();
-//            Timestamp timestamp = new Timestamp(dateTime);
-//            comments[i] = new Comment(Long.valueOf(i), timestamp.toString(), "content" + i, i);
-//        }
-
 
         return list.toArray(new Comment[list.size()]);
     }

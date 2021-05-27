@@ -22,7 +22,7 @@ import com.example.capstoneandroid.util.VolleySingletonRQ;
 
 public class SendingImageActivity extends AppCompatActivity {
     //------------------------------여기 IP를 본인 아이피랑 포트로 설명하시고 뒤에 url도 완성해주세요
-    private final String AiServerUrl = "http://122.40.75.17:8080";
+    private final String AiServerUrl = "http://218.157.43.244:5000/fileUpload";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class SendingImageActivity extends AppCompatActivity {
                         Log.d("AIserver", error.toString());
                     }
                 });
-                simpleMultiPartRequest.addFile("img", imgPath);
+                simpleMultiPartRequest.addFile("file", imgPath);
                 VolleySingletonRQ.getInstance(getApplicationContext()).addToRequestQueue(simpleMultiPartRequest);
             }
         });

@@ -15,6 +15,6 @@
 
     <string name="IP">http://54.180.118.135</string>
     <string name="port">8080</string>
-    <string name="getPostList"></string>
-    <string name="getCommentList"></string>
+    <string name="getPostList">/allPost</string>
+    <string name="getCommentList">/allComment</string>
 </resources>

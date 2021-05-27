@@ -82,6 +82,7 @@ public class DashboardFragment extends Fragment {
     private void setDataSet(){
         List<Post> list = new ArrayList<>();
         String url = getString(R.string.IP) + ":" + getString(R.string.port) + getString(R.string.getPostList);
+        //String url = "http://10.0.2.2:8080/allPost";
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -98,6 +99,7 @@ public class DashboardFragment extends Fragment {
                     }
                     dashboardViewModel.setDataSet(list.toArray(new Post[list.size()]));
                 }
+                Log.d("server", "" + list.size());
             }
         }, new Response.ErrorListener() {
             @Override

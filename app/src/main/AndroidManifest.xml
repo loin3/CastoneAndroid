@@ -13,6 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CapstoneAndroid"
 
+        android:requestLegacyExternalStorage="true"
+
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.dashboard.SeePostActivity"></activity>
         <activity android:name=".ui.home.AiResultActivity" />
