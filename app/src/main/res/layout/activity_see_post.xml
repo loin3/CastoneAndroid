@@ -38,8 +38,8 @@
 
                 <ImageView
                     android:id="@+id/post_image"
-                    android:layout_width="wrap_content"
-                    android:layout_height="300dp"
+                    android:layout_width="278dp"
+                    android:layout_height="422dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/post_title"
@@ -64,6 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="댓글"
+                android:paddingTop="10dp"
                 app:layout_constraintBottom_toTopOf="@+id/comment_list_view"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -94,7 +95,7 @@
         android:id="@+id/comment_button"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:text="Button"
+        android:text="댓글 작성"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />

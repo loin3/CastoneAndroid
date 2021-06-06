@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -72,7 +73,8 @@ public class DashboardFragment extends Fragment {
         writeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //post하기 버튼
+                Intent intent = new Intent(getContext(), WritePostActivity.class);
+                startActivityForResult(intent, 1000);
             }
         });
 
@@ -92,22 +94,48 @@ public class DashboardFragment extends Fragment {
                             JSONObject jsonObject = response.getJSONObject(i);
                             Post post = new Post(jsonObject.getLong("id"), jsonObject.getString("title"), jsonObject.getString("content"), jsonObject.getInt("likes")
                                                     , jsonObject.getLong("imageId"), jsonObject.getString("createdTime"));
+                            JSONArray tempComments = jsonObject.getJSONArray("comments");
+                            if(tempComments != null){
+                                for(int j = 0; j < tempComments.length(); j++){
+                                    JSONObject temp = tempComments.getJSONObject(j);
+                                    Comment comment = new Comment();
+                                    comment.id = temp.getLong("id");
+                                    comment.content = temp.getString("content");
+                                    comment.createdTime = temp.getString("createdTime");
+                                    comment.likes = temp.getInt("likes");
+                                    post.comments.add(comment);
+                                }
+                            }
                             list.add(post);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
                     dashboardViewModel.setDataSet(list.toArray(new Post[list.size()]));
+                    recyclerViewAdapter.refreshDataSet(dashboardViewModel.getDataSet());
+                    recyclerViewAdapter.notifyDataSetChanged();
                 }
-                Log.d("server", "" + list.size());
+                Log.d("server", "포스트 가져오기 가져온 결과의 개수는" + list.size());
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.d("server", error.toString());
+                Log.d("server", "포스트 가져오기 에서 에러" + error.toString());
             }
         });
+        jsonArrayRequest.setShouldCache(false);
         VolleySingletonRQ.getInstance(getContext()).addToRequestQueue(jsonArrayRequest);
-        dashboardViewModel.setDataSet(list.toArray(new Post[list.size()]));
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d("server", "포스팅후 resultCode = " + resultCode);
+        if(resultCode == 0){
+            //아무것도 안함
+        }else if(resultCode == -1){
+            //리스트 리프레시
+            setDataSet();
+        }
     }
 }

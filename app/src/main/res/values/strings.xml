@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">CapstoneAndroid</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">캡스톤</string>
+    <string name="title_home">홈</string>
+    <string name="title_dashboard">게시판</string>
+    <string name="title_notifications">알람</string>
     <string name="title_activity_ai_result">AiResultActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -13,8 +13,11 @@
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
 
-    <string name="IP">http://54.180.118.135</string>
+    <string name="IP">http://52.79.233.110</string>
     <string name="port">8080</string>
     <string name="getPostList">/allPost</string>
     <string name="getCommentList">/allComment</string>
+    <string name="post">/post</string>
+    <string name="postComment">/postComment</string>
+    <string name="getImage">/image</string>
 </resources>

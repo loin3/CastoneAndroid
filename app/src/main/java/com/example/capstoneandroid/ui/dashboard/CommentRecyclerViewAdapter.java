@@ -29,11 +29,6 @@ public class CommentRecyclerViewAdapter extends RecyclerView.Adapter<CommentRecy
         }
     }
 
-    //----------------------------------------
-    public CommentRecyclerViewAdapter(Comment[] dataSet){
-        this.dataSet = dataSet;
-    }
-
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -50,6 +45,12 @@ public class CommentRecyclerViewAdapter extends RecyclerView.Adapter<CommentRecy
 
     @Override
     public int getItemCount() {
-        return dataSet.length;
+        if(dataSet != null){
+            return dataSet.length;
+        }else{
+            return 0;
+        }
     }
+
+    public void setDataSet(Comment[] comments){this.dataSet = comments;}
 }

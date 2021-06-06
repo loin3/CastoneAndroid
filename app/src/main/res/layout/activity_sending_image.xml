@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.SendingImageActivity">
 
+    <TextView
+        android:id="@+id/diseaseTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사진을 골라주세요"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/thumbnailImageButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/thumbnailImageButton"
         android:layout_width="278dp"
@@ -20,9 +31,20 @@
         android:id="@+id/submitToServerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="확인"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thumbnailImageButton" />
+
+    <Button
+        android:id="@+id/goSiteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="정보 확인"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thumbnailImageButton"
+        android:visibility="invisible"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

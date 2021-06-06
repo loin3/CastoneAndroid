@@ -52,6 +52,10 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
         onItemClickListener = itemClickListener;
     }
 
+    public void refreshDataSet(LiveData<Post[]> dataSet) {
+        this.dataSet = dataSet.getValue();
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -69,6 +73,11 @@ public class PostRecyclerViewAdapter extends RecyclerView.Adapter<PostRecyclerVi
 
     @Override
     public int getItemCount() {
-        return dataSet.length;
+        if(dataSet != null){
+            return dataSet.length;
+        }else{
+            return 0;
+        }
+
     }
 }

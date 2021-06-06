@@ -26,7 +26,6 @@ public class DashboardViewModel extends ViewModel {
 
     public DashboardViewModel() {
         dataSet = new MutableLiveData<>();
-        initDataSet();
     }
 
     public LiveData<Post[]> getDataSet() {
@@ -35,15 +34,5 @@ public class DashboardViewModel extends ViewModel {
 
     public void setDataSet(Post[] posts){
         this.dataSet.setValue(posts);
-    }
-
-    private void initDataSet(){
-        Post[] temp = new Post[30];
-        for(int i = 0; i < temp.length; i++){
-            Long dateTime = System.currentTimeMillis();
-            Timestamp timestamp = new Timestamp(dateTime);
-            temp[i] = new Post(Long.valueOf(i), "title" + i, "content" + i, i, Long.valueOf(i), timestamp.toString());
-        }
-        dataSet.setValue(temp);
     }
 }
